@@ -1,0 +1,43 @@
+html, body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    font-family: "Arial";
+}
+
+body{
+    background: #f9dff9;
+
+    #main-container{
+        background: #efd7f1;
+        min-height: 100%;
+        .row{
+            margin-right: 0;
+        }
+    }
+}
+
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.config{
+    padding: 25px 0;
+    
+    code{
+        display: block;
+    }
+}
+
+@import "./menu/topmenu.less";
+@import "./menu/sidemenu.less";
