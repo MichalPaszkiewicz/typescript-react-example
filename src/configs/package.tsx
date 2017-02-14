@@ -40,7 +40,7 @@ export class PackageConfig extends React.Component<PackageConfigProps, {}> {
                 <p>        "source-map-loader": "^0.1.5",</p>
                 <p>        "style-loader": "^0.13.1",</p>
                 <p>        "ts-loader": "^1.2.0",</p>
-                <p>        "typescript": "^2.0.9"</p>
+                <p>        "typescript": "^2.1.6"</p>
                 <p>    }</p>
                 <p>}</p>
                 </pre>

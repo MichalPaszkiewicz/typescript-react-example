@@ -14,11 +14,18 @@ export interface AppProps{
 
 }
 
+
+export class AppState {
+    history = [];
+}
+
 export class App extends React.Component<AppProps, {}>{
+    state: AppState = new AppState();
+
     constructor(){
         super();
-        this.state ={
-            history: [] = []
+        this.state = {
+            history: []
         };
     }
     addHistory(url: string){

@@ -87,10 +87,18 @@
 	var configs_1 = __webpack_require__(71);
 	var tsconfig_1 = __webpack_require__(72);
 	var package_1 = __webpack_require__(73);
+	var AppState = (function () {
+	    function AppState() {
+	        this.history = [];
+	    }
+	    return AppState;
+	}());
+	exports.AppState = AppState;
 	var App = (function (_super) {
 	    __extends(App, _super);
 	    function App() {
 	        _super.call(this);
+	        this.state = new AppState();
 	        this.state = {
 	            history: []
 	        };
@@ -113,7 +121,24 @@
 	                return (React.createElement(configs_1.Configs, {clickHandler: function (url) { return self.addHistory(url); }}));
 	            }
 	        });
-	        return (React.createElement("div", {id: "main-container"}, React.createElement(topmenu_1.TopMenu, {clickHandler: function (url) { return _this.addHistory(url); }}), React.createElement("div", {className: "row"}, React.createElement("div", {className: "col-md-2 hidden-xs hidden-sm"}, React.createElement(sidemenu_1.SideMenu, {history: this.state.history})), React.createElement("div", {className: "col-md-10"}, React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, React.createElement(react_router_1.Route, {path: "/", component: home_1.Home}), React.createElement(react_router_1.Route, {path: "/about", component: about_1.About}), React.createElement(react_router_1.Route, {path: "/address", component: Address}), React.createElement(react_router_1.Route, {path: "/address/compiler", component: CompilerWrapper}), React.createElement(react_router_1.Route, {path: "/configs", component: ConfigsWrapper}), React.createElement(react_router_1.Route, {path: "/configs/tsconfig", component: tsconfig_1.TsConfig}), React.createElement(react_router_1.Route, {path: "/configs/webpack", component: webpack_1.WebPack}), React.createElement(react_router_1.Route, {path: "/configs/package", component: package_1.PackageConfig}), React.createElement(react_router_1.Route, {path: "*", component: NotFound}))))));
+	        return (React.createElement("div", {id: "main-container"}, 
+	            React.createElement(topmenu_1.TopMenu, {clickHandler: function (url) { return _this.addHistory(url); }}), 
+	            React.createElement("div", {className: "row"}, 
+	                React.createElement("div", {className: "col-md-2 hidden-xs hidden-sm"}, 
+	                    React.createElement(sidemenu_1.SideMenu, {history: this.state.history})
+	                ), 
+	                React.createElement("div", {className: "col-md-10"}, 
+	                    React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, 
+	                        React.createElement(react_router_1.Route, {path: "/", component: home_1.Home}), 
+	                        React.createElement(react_router_1.Route, {path: "/about", component: about_1.About}), 
+	                        React.createElement(react_router_1.Route, {path: "/address", component: Address}), 
+	                        React.createElement(react_router_1.Route, {path: "/address/compiler", component: CompilerWrapper}), 
+	                        React.createElement(react_router_1.Route, {path: "/configs", component: ConfigsWrapper}), 
+	                        React.createElement(react_router_1.Route, {path: "/configs/tsconfig", component: tsconfig_1.TsConfig}), 
+	                        React.createElement(react_router_1.Route, {path: "/configs/webpack", component: webpack_1.WebPack}), 
+	                        React.createElement(react_router_1.Route, {path: "/configs/package", component: package_1.PackageConfig}), 
+	                        React.createElement(react_router_1.Route, {path: "*", component: NotFound}))
+	                ))));
 	    };
 	    return App;
 	}(React.Component));
@@ -5321,7 +5346,14 @@
 	        _super.apply(this, arguments);
 	    }
 	    Hello.prototype.render = function () {
-	        return (React.createElement("div", null, React.createElement("h1", null, "Hello from ", this.props.compiler, " and ", this.props.framework, "!"), React.createElement(Modal.Modal, null)));
+	        return (React.createElement("div", null, 
+	            React.createElement("h1", null, 
+	                "Hello from ", 
+	                this.props.compiler, 
+	                " and ", 
+	                this.props.framework, 
+	                "!"), 
+	            React.createElement(Modal.Modal, null)));
 	    };
 	    return Hello;
 	}(React.Component));
@@ -5369,7 +5401,11 @@
 	        _super.apply(this, arguments);
 	    }
 	    Home.prototype.render = function () {
-	        return (React.createElement("div", {className: "row"}, React.createElement("div", {className: "col-xs-12"}, React.createElement("h1", null, "Home"))));
+	        return (React.createElement("div", {className: "row"}, 
+	            React.createElement("div", {className: "col-xs-12"}, 
+	                React.createElement("h1", null, "Home")
+	            )
+	        ));
 	    };
 	    return Home;
 	}(React.Component));
@@ -5397,7 +5433,13 @@
 	        this.props.clickHandler(url);
 	    };
 	    TopMenu.prototype.render = function () {
-	        return (React.createElement("div", {className: "top-menu"}, React.createElement("h1", null, "React"), React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/", text: "Home"}), React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/about", text: "About"}), React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/address", text: "Address"}), React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/address/compiler", text: "Compiler"}), React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/", text: "Configs"})));
+	        return (React.createElement("div", {className: "top-menu"}, 
+	            React.createElement("h1", null, "React"), 
+	            React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/", text: "Home"}), 
+	            React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/about", text: "About"}), 
+	            React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/address", text: "Address"}), 
+	            React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/address/compiler", text: "Compiler"}), 
+	            React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/", text: "Configs"})));
 	    };
 	    return TopMenu;
 	}(React.Component));
@@ -5451,9 +5493,13 @@
 	    SideMenu.prototype.render = function () {
 	        var historyLinks = this.props.history.map(function (h) {
 	            var key = Math.random().toString();
-	            return React.createElement("div", {className: "side-menu-item"}, React.createElement("a", {key: key, href: h}, h));
+	            return React.createElement("div", {className: "side-menu-item"}, 
+	                React.createElement("a", {key: key, href: h}, h)
+	            );
 	        });
-	        return (React.createElement("div", {className: "side-menu"}, historyLinks, React.createElement("div", {className: "clearfix"})));
+	        return (React.createElement("div", {className: "side-menu"}, 
+	            historyLinks, 
+	            React.createElement("div", {className: "clearfix"})));
 	    };
 	    return SideMenu;
 	}(React.Component));
@@ -5477,7 +5523,16 @@
 	        _super.apply(this, arguments);
 	    }
 	    About.prototype.render = function () {
-	        return (React.createElement("div", null, React.createElement("h1", null, "About"), React.createElement("p", null, "This app is build from knowledge aquired from following these tutorials:", React.createElement("br", null), React.createElement("a", {href: "https://www.typescriptlang.org/docs/handbook/react-&-webpack.html"}, "Typescript React and Webpack"), React.createElement("br", null), React.createElement("a", {href: "http://redux.js.org/docs/basics/"}, "handy guide to redux"), React.createElement("br", null), React.createElement("a", {href: "http://www.mattgreer.org/articles/typescript-react-and-redux/"}, "Typescript Redux"))));
+	        return (React.createElement("div", null, 
+	            React.createElement("h1", null, "About"), 
+	            React.createElement("p", null, 
+	                "This app is build from knowledge aquired from following these tutorials:", 
+	                React.createElement("br", null), 
+	                React.createElement("a", {href: "https://www.typescriptlang.org/docs/handbook/react-&-webpack.html"}, "Typescript React and Webpack"), 
+	                React.createElement("br", null), 
+	                React.createElement("a", {href: "http://redux.js.org/docs/basics/"}, "handy guide to redux"), 
+	                React.createElement("br", null), 
+	                React.createElement("a", {href: "http://www.mattgreer.org/articles/typescript-react-and-redux/"}, "Typescript Redux"))));
 	    };
 	    return About;
 	}(React.Component));
@@ -5501,15 +5556,73 @@
 	        _super.apply(this, arguments);
 	    }
 	    WebPack.prototype.render = function () {
-	        return (React.createElement("div", {className: "config"}, React.createElement("pre", null, React.createElement("p", null, "module.exports = ", '{'), React.createElement("p", null, "    entry: \"./src/index.tsx\","), React.createElement("p", null, "    output: ", '{'), React.createElement("p", null, "        filename: \"bundle.js\","), React.createElement("p", null, "        path: __dirname + \"/dist\""), React.createElement("p", null, "    },"), React.createElement("p", null), React.createElement("p", null, "    // Enable sourcemaps for debugging webpack's output.") // Enable sourcemaps for debugging webpack's output.</p>
-	        , React.createElement("p", null, "    devtool: \"source-map\","), React.createElement("p", null), React.createElement("p", null, "    resolve: ", '{'), React.createElement("p", null, "        // Add '.ts' and '.tsx' as resolvable extensions.") // Add '.ts' and '.tsx' as resolvable extensions.</p>
-	        , React.createElement("p", null, "        extensions: [\"\", \".webpack.js\", \".web.js\", \".ts\", \".tsx\", \".js\"]"), React.createElement("p", null, "    },"), React.createElement("p", null), React.createElement("p", null, "    module: ", '{'), React.createElement("p", null, "        loaders: ["), React.createElement("p", null, "            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.") // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.</p>
-	        , React.createElement("p", null, "            ", '{', " test: /\\.tsx?$/, loader: \"ts-loader\" },"), React.createElement("p", null, "            ", '{', " test: /\\.less?$/, loader: \"style!css!less\"}"), React.createElement("p", null, "        ],"), React.createElement("p", null), React.createElement("p", null, "        preLoaders: ["), React.createElement("p", null, "            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.") // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.</p>
-	        , React.createElement("p", null, "            ", '{', " test: /\\.js$/, loader: \"source-map-loader\" }"), React.createElement("p", null, "        ]"), React.createElement("p", null, "    },"), React.createElement("p", null), React.createElement("p", null, "    // When importing a module whose path matches one of the following, just") // When importing a module whose path matches one of the following, just</p>
-	        , React.createElement("p", null, "    // assume a corresponding global variable exists and use that instead.") // assume a corresponding global variable exists and use that instead.</p>
-	        , React.createElement("p", null, "    // This is important because it allows us to avoid bundling all of our") // This is important because it allows us to avoid bundling all of our</p>
-	        , React.createElement("p", null, "    // dependencies, which allows browsers to cache those libraries between builds.") // dependencies, which allows browsers to cache those libraries between builds.</p>
-	        , React.createElement("p", null, "    externals: ", '{'), React.createElement("p", null, "        \"react\": \"React\","), React.createElement("p", null, "        \"react-dom\": \"ReactDOM\""), React.createElement("p", null, "    },"), React.createElement("p", null, "};                                                                                                 "))));
+	        return (React.createElement("div", {className: "config"}, 
+	            React.createElement("pre", null, 
+	                React.createElement("p", null, 
+	                    "module.exports = ", 
+	                    '{'), 
+	                React.createElement("p", null, "    entry: \"./src/index.tsx\","), 
+	                React.createElement("p", null, 
+	                    "    output: ", 
+	                    '{'), 
+	                React.createElement("p", null, "        filename: \"bundle.js\","), 
+	                React.createElement("p", null, "        path: __dirname + \"/dist\""), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null), 
+	                React.createElement("p", null, "    // Enable sourcemaps for debugging webpack's output.") // Enable sourcemaps for debugging webpack's output.</p>
+	                , 
+	                React.createElement("p", null, "    devtool: \"source-map\","), 
+	                React.createElement("p", null), 
+	                React.createElement("p", null, 
+	                    "    resolve: ", 
+	                    '{'), 
+	                React.createElement("p", null, "        // Add '.ts' and '.tsx' as resolvable extensions.") // Add '.ts' and '.tsx' as resolvable extensions.</p>
+	                , 
+	                React.createElement("p", null, "        extensions: [\"\", \".webpack.js\", \".web.js\", \".ts\", \".tsx\", \".js\"]"), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null), 
+	                React.createElement("p", null, 
+	                    "    module: ", 
+	                    '{'), 
+	                React.createElement("p", null, "        loaders: ["), 
+	                React.createElement("p", null, "            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.") // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.</p>
+	                , 
+	                React.createElement("p", null, 
+	                    "            ", 
+	                    '{', 
+	                    " test: /\\.tsx?$/, loader: \"ts-loader\" },"), 
+	                React.createElement("p", null, 
+	                    "            ", 
+	                    '{', 
+	                    " test: /\\.less?$/, loader: \"style!css!less\"}"), 
+	                React.createElement("p", null, "        ],"), 
+	                React.createElement("p", null), 
+	                React.createElement("p", null, "        preLoaders: ["), 
+	                React.createElement("p", null, "            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.") // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.</p>
+	                , 
+	                React.createElement("p", null, 
+	                    "            ", 
+	                    '{', 
+	                    " test: /\\.js$/, loader: \"source-map-loader\" }"), 
+	                React.createElement("p", null, "        ]"), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null), 
+	                React.createElement("p", null, "    // When importing a module whose path matches one of the following, just") // When importing a module whose path matches one of the following, just</p>
+	                , 
+	                React.createElement("p", null, "    // assume a corresponding global variable exists and use that instead.") // assume a corresponding global variable exists and use that instead.</p>
+	                , 
+	                React.createElement("p", null, "    // This is important because it allows us to avoid bundling all of our") // This is important because it allows us to avoid bundling all of our</p>
+	                , 
+	                React.createElement("p", null, "    // dependencies, which allows browsers to cache those libraries between builds.") // dependencies, which allows browsers to cache those libraries between builds.</p>
+	                , 
+	                React.createElement("p", null, 
+	                    "    externals: ", 
+	                    '{'), 
+	                React.createElement("p", null, "        \"react\": \"React\","), 
+	                React.createElement("p", null, "        \"react-dom\": \"ReactDOM\""), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null, "};                                                                                                 "))
+	        ));
 	    };
 	    return WebPack;
 	}(React.Component));
@@ -5534,7 +5647,16 @@
 	        _super.call(this);
 	    }
 	    Configs.prototype.render = function () {
-	        return (React.createElement("div", {className: "config"}, React.createElement("div", null, React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/package", text: "package"})), React.createElement("div", null, React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/webpack", text: "webpack"})), React.createElement("div", null, React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/tsconfig", text: "tsconfig"}))));
+	        return (React.createElement("div", {className: "config"}, 
+	            React.createElement("div", null, 
+	                React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/package", text: "package"})
+	            ), 
+	            React.createElement("div", null, 
+	                React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/webpack", text: "webpack"})
+	            ), 
+	            React.createElement("div", null, 
+	                React.createElement(hlink_1.HLink, {clickHandler: this.props.clickHandler, link: "#/configs/tsconfig", text: "tsconfig"})
+	            )));
 	    };
 	    return Configs;
 	}(React.Component));
@@ -5558,7 +5680,25 @@
 	        _super.apply(this, arguments);
 	    }
 	    TsConfig.prototype.render = function () {
-	        return (React.createElement("div", {className: "config"}, React.createElement("pre", null, React.createElement("p", null, '{'), React.createElement("p", null, "    \"compilerOptions\": ", '{'), React.createElement("p", null, "        \"outDir\": \"./dist/\","), React.createElement("p", null, "        \"sourceMap\": true,"), React.createElement("p", null, "        \"noImplicitAny\": false,"), React.createElement("p", null, "        \"module\": \"commonjs\","), React.createElement("p", null, "        \"target\": \"es5\","), React.createElement("p", null, "        \"jsx\": \"react\","), React.createElement("p", null, "        \"moduleResolution\": \"node\""), React.createElement("p", null, "    },"), React.createElement("p", null, "    \"files\": ["), React.createElement("p", null, "        \"./src/index.tsx\""), React.createElement("p", null, "    ]"), React.createElement("p", null, "}                                    "))));
+	        return (React.createElement("div", {className: "config"}, 
+	            React.createElement("pre", null, 
+	                React.createElement("p", null, '{'), 
+	                React.createElement("p", null, 
+	                    "    \"compilerOptions\": ", 
+	                    '{'), 
+	                React.createElement("p", null, "        \"outDir\": \"./dist/\","), 
+	                React.createElement("p", null, "        \"sourceMap\": true,"), 
+	                React.createElement("p", null, "        \"noImplicitAny\": false,"), 
+	                React.createElement("p", null, "        \"module\": \"commonjs\","), 
+	                React.createElement("p", null, "        \"target\": \"es5\","), 
+	                React.createElement("p", null, "        \"jsx\": \"react\","), 
+	                React.createElement("p", null, "        \"moduleResolution\": \"node\""), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null, "    \"files\": ["), 
+	                React.createElement("p", null, "        \"./src/index.tsx\""), 
+	                React.createElement("p", null, "    ]"), 
+	                React.createElement("p", null, "}                                    "))
+	        ));
 	    };
 	    return TsConfig;
 	}(React.Component));
@@ -5582,7 +5722,52 @@
 	        _super.apply(this, arguments);
 	    }
 	    PackageConfig.prototype.render = function () {
-	        return (React.createElement("div", {className: "config"}, React.createElement("pre", null, React.createElement("p", null, '{'), React.createElement("p", null, "    \"name\": \"reactts\","), React.createElement("p", null, "    \"version\": \"0.0.0\","), React.createElement("p", null, "    \"description\": \"a new react app with typescript\","), React.createElement("p", null, "    \"scripts\": ", '{'), React.createElement("p", null, "        \"watch\": \"webpack --config webpack.config.js --progress --profile --colors --watch\","), React.createElement("p", null, "        \"build\": \"webpack --config webpack.config.js --progress --profile --colors\","), React.createElement("p", null, "        \"release\": \"webpack --config webpack.config.js --progress --profile --colors --optimize-minimize --optimize-dedupe\""), React.createElement("p", null, "    },"), React.createElement("p", null, "    \"author\": \"Michal Paszkiewicz\","), React.createElement("p", null, "    \"license\": \"MIT\","), React.createElement("p", null, "    \"dependencies\": ", '{'), React.createElement("p", null, "        \"@types/immutable\": \"^3.8.4\","), React.createElement("p", null, "        \"@types/react\": \"^0.14.47\","), React.createElement("p", null, "        \"@types/react-dom\": \"^0.14.18\","), React.createElement("p", null, "        \"@types/react-redux\": \"^4.4.32\","), React.createElement("p", null, "        \"@types/react-router\": \"^2.0.38\","), React.createElement("p", null, "        \"@types/redux\": \"^3.6.31\","), React.createElement("p", null, "        \"@types/redux-actions\": \"^0.8.31\","), React.createElement("p", null, "        \"immutable\": \"^3.8.1\","), React.createElement("p", null, "        \"less\": \"^2.1.2\","), React.createElement("p", null, "        \"less-loader\": \"^2.0.0\","), React.createElement("p", null, "        \"react\": \"^15.3.2\","), React.createElement("p", null, "        \"react-dom\": \"^15.3.2\","), React.createElement("p", null, "        \"react-router\": \"^3.0.0\""), React.createElement("p", null, "        \"redux-actions\": \"^0.13.0\""), React.createElement("p", null, "    },"), React.createElement("p", null, "    \"devDependencies\": ", '{'), React.createElement("p", null, "        \"css-loader\": \"^0.25.0\","), React.createElement("p", null, "        \"react-redux\": \"^4.4.5\""), React.createElement("p", null, "        \"redux\": \"^3.6.0\""), React.createElement("p", null, "        \"source-map-loader\": \"^0.1.5\","), React.createElement("p", null, "        \"style-loader\": \"^0.13.1\","), React.createElement("p", null, "        \"ts-loader\": \"^1.2.0\","), React.createElement("p", null, "        \"typescript\": \"^2.0.9\""), React.createElement("p", null, "    }"), React.createElement("p", null, "}"))));
+	        return (React.createElement("div", {className: "config"}, 
+	            React.createElement("pre", null, 
+	                React.createElement("p", null, '{'), 
+	                React.createElement("p", null, "    \"name\": \"reactts\","), 
+	                React.createElement("p", null, "    \"version\": \"0.0.0\","), 
+	                React.createElement("p", null, "    \"description\": \"a new react app with typescript\","), 
+	                React.createElement("p", null, 
+	                    "    \"scripts\": ", 
+	                    '{'), 
+	                React.createElement("p", null, "        \"watch\": \"webpack --config webpack.config.js --progress --profile --colors --watch\","), 
+	                React.createElement("p", null, "        \"build\": \"webpack --config webpack.config.js --progress --profile --colors\","), 
+	                React.createElement("p", null, "        \"release\": \"webpack --config webpack.config.js --progress --profile --colors --optimize-minimize --optimize-dedupe\""), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null, "    \"author\": \"Michal Paszkiewicz\","), 
+	                React.createElement("p", null, "    \"license\": \"MIT\","), 
+	                React.createElement("p", null, 
+	                    "    \"dependencies\": ", 
+	                    '{'), 
+	                React.createElement("p", null, "        \"@types/immutable\": \"^3.8.4\","), 
+	                React.createElement("p", null, "        \"@types/react\": \"^0.14.47\","), 
+	                React.createElement("p", null, "        \"@types/react-dom\": \"^0.14.18\","), 
+	                React.createElement("p", null, "        \"@types/react-redux\": \"^4.4.32\","), 
+	                React.createElement("p", null, "        \"@types/react-router\": \"^2.0.38\","), 
+	                React.createElement("p", null, "        \"@types/redux\": \"^3.6.31\","), 
+	                React.createElement("p", null, "        \"@types/redux-actions\": \"^0.8.31\","), 
+	                React.createElement("p", null, "        \"immutable\": \"^3.8.1\","), 
+	                React.createElement("p", null, "        \"less\": \"^2.1.2\","), 
+	                React.createElement("p", null, "        \"less-loader\": \"^2.0.0\","), 
+	                React.createElement("p", null, "        \"react\": \"^15.3.2\","), 
+	                React.createElement("p", null, "        \"react-dom\": \"^15.3.2\","), 
+	                React.createElement("p", null, "        \"react-router\": \"^3.0.0\""), 
+	                React.createElement("p", null, "        \"redux-actions\": \"^0.13.0\""), 
+	                React.createElement("p", null, "    },"), 
+	                React.createElement("p", null, 
+	                    "    \"devDependencies\": ", 
+	                    '{'), 
+	                React.createElement("p", null, "        \"css-loader\": \"^0.25.0\","), 
+	                React.createElement("p", null, "        \"react-redux\": \"^4.4.5\""), 
+	                React.createElement("p", null, "        \"redux\": \"^3.6.0\""), 
+	                React.createElement("p", null, "        \"source-map-loader\": \"^0.1.5\","), 
+	                React.createElement("p", null, "        \"style-loader\": \"^0.13.1\","), 
+	                React.createElement("p", null, "        \"ts-loader\": \"^1.2.0\","), 
+	                React.createElement("p", null, "        \"typescript\": \"^2.1.6\""), 
+	                React.createElement("p", null, "    }"), 
+	                React.createElement("p", null, "}"))
+	        ));
 	    };
 	    return PackageConfig;
 	}(React.Component));
